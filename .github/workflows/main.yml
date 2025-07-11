@@ -1,4 +1,4 @@
-name: Deploy to Github pages
+name: Web Build + Deploy to GitHub Pages
 
 on:
   push:
@@ -18,13 +18,13 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install Heroku CLI
+    - name: Install dependencies
       run: |
-        curl https://cli-assets.heroku.com/install.sh | sh
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-    - name: Deploy to Heroku
-      env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: |
-        heroku git:remote -a dvm-ai-school-portal
-        git push heroku main
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist  # Make sure this folder exists and has your static files
