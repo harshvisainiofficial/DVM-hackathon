@@ -1,4 +1,4 @@
-name: Web Build + Deploy to GitHub Pages
+name: Deploy to Github pages
 
 on:
   push:
@@ -18,17 +18,13 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install dependencies
+    - name: Install Heroku CLI
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        curl https://cli-assets.heroku.com/install.sh | sh
 
-    - name: Render static files
+    - name: Deploy to Heroku
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: |
-        python render_static.py
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+        heroku git:remote -a dvm-ai-school-portal
+        git push heroku main
