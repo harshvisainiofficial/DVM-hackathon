@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - DVM AI School</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('courses') }}" class="active">Courses</a></li>
+            <li><a href="{{ url_for('projects') }}">Projects</a></li>
+            <li><a href="{{ url_for('curriculum') }}">Curriculum</a></li>
+            <li><a href="{{ url_for('hackathon') }}">Hackathon</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="main-page courses-theme">
+        <h1>Courses</h1>
+        <div class="courses-grid">
+            <div class="course-cube">
+                <h2>Website Module</h2>
+                <p>Learn the foundations of web development, including HTML, CSS, JavaScript, and responsive design. Build interactive, modern websites from scratch and deploy them online.</p>
+            </div>
+            <div class="course-cube">
+                <h2>Blockchain Module</h2>
+                <p>Explore blockchain technology, smart contracts, and decentralized applications. Understand how blockchain is transforming industries and build your own blockchain projects.</p>
+            </div>
+            <div class="course-cube">
+                <h2>Application Development Module</h2>
+                <p>Master the art of building mobile and desktop applications. Learn about UI/UX, cross-platform tools, and how to bring your app ideas to life.</p>
+            </div>
+            <div class="course-cube">
+                <h2>Game Development Module</h2>
+                <p>Dive into the world of game design and development. Use popular engines to create engaging games, from concept to playable product.</p>
+            </div>
+            <div class="course-cube">
+                <h2>Video Editing Module</h2>
+                <p>Learn professional video editing techniques, storytelling, and post-production. Create stunning videos for social media, film, and more.</p>
+            </div>
+            <div class="course-cube">
+                <h2>Software Development Module</h2>
+                <p>Develop robust software solutions using modern programming languages and frameworks. Understand software engineering principles and best practices.</p>
+            </div>
+            <div class="course-cube">
+                <h2>Film Making Module</h2>
+                <p>Experience the art and science of filmmaking. From scriptwriting to shooting and editing, learn how to create impactful films and documentaries.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

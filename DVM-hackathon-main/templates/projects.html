@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - DVM AI School</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('courses') }}">Courses</a></li>
+            <li><a href="{{ url_for('projects') }}" class="active">Projects</a></li>
+            <li><a href="{{ url_for('curriculum') }}">Curriculum</a></li>
+            <li><a href="{{ url_for('hackathon') }}">Hackathon</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="main-page">
+        <h1>Projects</h1>
+        <div class="section">
+            <p style="text-align: center;">Coming Soon</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Department of Visual Media</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='ai_driven_logo.png') }}" alt="AI Driven School Logo" class="logo">
+        <h1>Department of Visual Media</h1>
+        <h2>Registeration</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-message {{ messages[0][0] }}">
+                    {{ messages[0][1] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form method="POST">
+            <div class="form-group">
+                <label for="full_name">Full Name</label>
+                <input type="text" id="full_name" name="full_name" required>
+            </div>
+            <div class="form-group">
+                <label for="school_name">School Name</label>
+                <input type="text" id="school_name" name="school_name" required>
+            </div>
+            <div class="form-group">
+                <label for="class">Class</label>
+                <select id="class" name="class" required>
+                    <option value="" disabled selected>Select your class</option>
+                    <option value="1st">1st</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3rd">3rd</option>
+                    <option value="4th">4th</option>
+                    <option value="5th">5th</option>
+                    <option value="6th">6th</option>
+                    <option value="7th">7th</option>
+                    <option value="8th">8th</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                    <option value="11th">11th</option>
+                    <option value="12th">12th</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="roll_no">Roll Number</label>
+                <input type="text" id="roll_no" name="roll_no" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="phone_no">Phone No.</label>
+                <input type="tel" id="phone_no" name="phone_no" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="birthdate">Birthdate</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="link">
+            <a href="{{ url_for('login') }}">Already registered? Login here</a>
+        </div>
+    </div>
+</body>
+</html>

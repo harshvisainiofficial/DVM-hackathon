@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - DVM AI School</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('profile') }}" class="active">Profile</a></li>
+            <li><a href="{{ url_for('courses') }}">Courses</a></li>
+            <li><a href="{{ url_for('projects') }}">Projects</a></li>
+            <li><a href="{{ url_for('curriculum') }}">Curriculum</a></li>
+            <li><a href="{{ url_for('hackathon') }}">Hackathon</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="main-page portal-theme">
+        <div class="profile-card">
+            <div class="profile-avatar">
+                <img src="{{ url_for('static', filename='ai_driven_logo.png') }}" alt="Profile Avatar">
+            </div>
+            <div class="profile-details">
+                <h1>{{ user.full_name }}</h1>
+                <h2>Student Profile</h2>
+                <div class="profile-info-grid">
+                    <div><strong>School Name:</strong> <span>{{ user.school_name }}</span></div>
+                    <div><strong>Class:</strong> <span>{{ user.class }}</span></div>
+                    <div><strong>Roll No.:</strong> <span>{{ user.roll_no }}</span></div>
+                    <div><strong>Phone No.:</strong> <span>{{ user.phone_no }}</span></div>
+                    <div><strong>Email ID:</strong> <span>{{ user.email }}</span></div>
+                    <div><strong>Username:</strong> <span>{{ user.username }}</span></div>
+                    <div><strong>Birthdate:</strong> <span>{{ user.birthdate }}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

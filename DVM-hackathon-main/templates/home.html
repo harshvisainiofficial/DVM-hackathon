@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - DVM AI School</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('courses') }}">Courses</a></li>
+            <li><a href="{{ url_for('projects') }}">Projects</a></li>
+            <li><a href="{{ url_for('curriculum') }}">Curriculum</a></li>
+            <li><a href="{{ url_for('hackathon') }}">Hackathon</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="main-page space-theme">
+        <img src="{{ url_for('static', filename='ai_driven_logo.png') }}" alt="AI Driven School Logo" class="logo">
+        <div class="home-content-wrapper">
+            <section class="testimonials">
+                <h2>What Our Students Say</h2>
+                <div class="testimonial-slider-container">
+                    <div class="testimonial-slider">
+                        <blockquote>"The AI Driven School changed my perspective on technology! The hands-on projects were amazing."<br><span>- Priya S., Class 10</span></blockquote>
+                        <blockquote>"I built my first AI model here. The roadmap and support are fantastic!"<br><span>- Aarav M., Class 12</span></blockquote>
+                        <blockquote>"The teachers are so supportive and the curriculum is fun and challenging."<br><span>- Meera K., Class 8</span></blockquote>
+                        <blockquote>"I loved the hackathons! I learned so much about teamwork and AI."<br><span>- Rahul D., Class 9</span></blockquote>
+                        <blockquote>"The modules are very practical and easy to understand."<br><span>- Sneha P., Class 7</span></blockquote>
+                        <blockquote>"I never thought I could code, but now I can build websites and apps!"<br><span>- Ishaan V., Class 6</span></blockquote>
+                        <blockquote>"The AI for Social Good project inspired me to help my community."<br><span>- Kavya R., Class 11</span></blockquote>
+                        <blockquote>"Game development was my favorite! I made my own game."<br><span>- Arjun S., Class 8</span></blockquote>
+                        <blockquote>"The video editing module was so creative and fun."<br><span>- Tanya L., Class 10</span></blockquote>
+                        <blockquote>"I learned about blockchain and its real-world uses."<br><span>- Dev M., Class 12</span></blockquote>
+                        <blockquote>"The roadmap helped me plan my AI journey step by step."<br><span>- Riya N., Class 9</span></blockquote>
+                        <blockquote>"I made new friends and learned to work in a team."<br><span>- Yash T., Class 7</span></blockquote>
+                        <blockquote>"The curriculum is always up to date with the latest tech."<br><span>- Simran G., Class 11</span></blockquote>
+                        <blockquote>"Film making module was a unique experience!"<br><span>- Aman J., Class 10</span></blockquote>
+                        <blockquote>"I feel ready for the future thanks to these courses."<br><span>- Pooja S., Class 12</span></blockquote>
+                        <blockquote>"The mentors are always there to help and guide us."<br><span>- Karan B., Class 8</span></blockquote>
+                        <!-- Duplicate for seamless scroll -->
+                        <blockquote>"The AI Driven School changed my perspective on technology! The hands-on projects were amazing."<br><span>- Priya S., Class 10</span></blockquote>
+                        <blockquote>"I built my first AI model here. The roadmap and support are fantastic!"<br><span>- Aarav M., Class 12</span></blockquote>
+                        <blockquote>"The teachers are so supportive and the curriculum is fun and challenging."<br><span>- Meera K., Class 8</span></blockquote>
+                        <blockquote>"I loved the hackathons! I learned so much about teamwork and AI."<br><span>- Rahul D., Class 9</span></blockquote>
+                        <blockquote>"The modules are very practical and easy to understand."<br><span>- Sneha P., Class 7</span></blockquote>
+                        <blockquote>"I never thought I could code, but now I can build websites and apps!"<br><span>- Ishaan V., Class 6</span></blockquote>
+                        <blockquote>"The AI for Social Good project inspired me to help my community."<br><span>- Kavya R., Class 11</span></blockquote>
+                        <blockquote>"Game development was my favorite! I made my own game."<br><span>- Arjun S., Class 8</span></blockquote>
+                        <blockquote>"The video editing module was so creative and fun."<br><span>- Tanya L., Class 10</span></blockquote>
+                        <blockquote>"I learned about blockchain and its real-world uses."<br><span>- Dev M., Class 12</span></blockquote>
+                        <blockquote>"The roadmap helped me plan my AI journey step by step."<br><span>- Riya N., Class 9</span></blockquote>
+                        <blockquote>"I made new friends and learned to work in a team."<br><span>- Yash T., Class 7</span></blockquote>
+                        <blockquote>"The curriculum is always up to date with the latest tech."<br><span>- Simran G., Class 11</span></blockquote>
+                        <blockquote>"Film making module was a unique experience!"<br><span>- Aman J., Class 10</span></blockquote>
+                        <blockquote>"I feel ready for the future thanks to these courses."<br><span>- Pooja S., Class 12</span></blockquote>
+                        <blockquote>"The mentors are always there to help and guide us."<br><span>- Karan B., Class 8</span></blockquote>
+                    </div>
+                </div>
+            </section>
+            <section class="about">
+                <h2>About Us</h2>
+                <p>
+                    AI Driven School is dedicated to nurturing the next generation of AI innovators. Our mission is to provide cutting-edge education in artificial intelligence, empowering students with the skills and knowledge to shape the future.
+                </p>
+            </section>
+            <section class="what-we-do">
+                <h2>What We Do</h2>
+                <ul>
+                    <li>Expert-led AI courses for school students</li>
+                    <li>Hands-on projects and real-world problem solving</li>
+                    <li>Hackathons and innovation challenges</li>
+                    <li>Personalized learning paths</li>
+                </ul>
+            </section>
+            <section class="vision">
+                <h2>Our Vision</h2>
+                <p>
+                    To make AI literacy accessible to every student, inspiring them to become creators and leaders in the digital universe.
+                </p>
+            </section>
+            <section class="roadmap">
+                <h2>Student Roadmap: Your AI Journey</h2>
+                <ol>
+                    <li>Start with AI basics and digital literacy</li>
+                    <li>Explore coding and data science fundamentals</li>
+                    <li>Build your first AI project</li>
+                    <li>Participate in hackathons and competitions</li>
+                    <li>Advance to real-world AI applications and research</li>
+                </ol>
+            </section>
+            <section class="curriculum">
+                <h2>Key Curriculum Offerings</h2>
+                <div class="modules">
+                    <div class="module">AI Fundamentals</div>
+                    <div class="module">Machine Learning & Data Science</div>
+                    <div class="module">Robotics & Automation</div>
+                    <div class="module">Ethics in AI</div>
+                    <div class="module">AI for Social Good</div>
+                    <div class="module">Creative AI: Art, Music & More</div>
+                </div>
+            </section>
+            <div class="section contact">
+                <p>Contact: +917073630877</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
