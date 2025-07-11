@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash, g
 import sqlite3
 import os
 import datetime
@@ -35,6 +35,19 @@ def init_db():
             FOREIGN KEY (username) REFERENCES users (username),
             FOREIGN KEY (team_name) REFERENCES teams (team_name)
         )''')
+        c.execute('''CREATE TABLE credits (
+            username TEXT PRIMARY KEY,
+            points INTEGER DEFAULT 0,
+            last_update REAL DEFAULT 0,
+            FOREIGN KEY (username) REFERENCES users (username)
+        )''')
+        c.execute('''CREATE TABLE rewards (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT,
+            voucher TEXT,
+            redeemed_at TEXT,
+            FOREIGN KEY (username) REFERENCES users (username)
+        )''')
         conn.commit()
         conn.close()
 
@@ -69,6 +82,9 @@ def register():
             c.execute('''INSERT INTO users (username, full_name, school_name, class, roll_no, password, phone_no, email, birthdate)
                          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
                       (username, full_name, school_name, class_name, roll_no, password, phone_no, email, birthdate))
+            # Add credits row
+            now = datetime.datetime.now().timestamp()
+            c.execute('INSERT INTO credits (username, points, last_update) VALUES (?, ?, ?)', (username, 0, now))
             conn.commit()
             flash(f'Successfully Registered! Your username is: {username}', 'success')
             return redirect(url_for('login'))
@@ -112,6 +128,9 @@ def profile():
     c = conn.cursor()
     c.execute('SELECT * FROM users WHERE username = ?', (session['username'],))
     user = c.fetchone()
+    c.execute('SELECT points FROM credits WHERE username = ?', (session['username'],))
+    credits_row = c.fetchone()
+    credits = credits_row[0] if credits_row else 0
     conn.close()
 
     if user:
@@ -123,7 +142,8 @@ def profile():
             'phone_no': user[6],
             'email': user[7],
             'username': user[0],
-            'birthdate': user[8]
+            'birthdate': user[8],
+            'credits': credits
         }
         return render_template('portal.html', user=user_data)
     return redirect(url_for('login'))
@@ -200,6 +220,26 @@ def logout():
     session.pop('username', None)
     flash('You have been logged out.', 'success')
     return redirect(url_for('login'))
+
+@app.before_request
+def award_credits():
+    if 'username' in session:
+        conn = sqlite3.connect('users.db')
+        c = conn.cursor()
+        c.execute('SELECT points, last_update FROM credits WHERE username = ?', (session['username'],))
+        row = c.fetchone()
+        now = datetime.datetime.now().timestamp()
+        if row:
+            points, last_update = row
+            minutes = int((now - last_update) // 60)
+            if minutes > 0:
+                new_points = points + minutes
+                c.execute('UPDATE credits SET points = ?, last_update = ? WHERE username = ?', (new_points, now, session['username']))
+                conn.commit()
+        else:
+            c.execute('INSERT INTO credits (username, points, last_update) VALUES (?, ?, ?)', (session['username'], 0, now))
+            conn.commit()
+        conn.close()
 
 if __name__ == '__main__':
     app.run(debug=True)

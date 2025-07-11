@@ -521,6 +521,76 @@ select option {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+/* Hackathon special card styling */
+.hackathon-card {
+    background: linear-gradient(120deg, #00c6ff 0%, #ff5ec4 100%);
+    border-radius: 20px;
+    box-shadow: 0 4px 32px #000a, 0 2px 0 #00c6ff44;
+    padding: 2.5rem 2rem;
+    max-width: 600px;
+    width: 100%;
+    margin: 2.5rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    color: #fff;
+}
+.hackathon-card h1, .hackathon-card h3 {
+    color: #fff;
+    text-shadow: 0 2px 8px #000a, 0 0 16px #00c6ff44;
+}
+.hackathon-card label {
+    color: #fff;
+}
+.hackathon-card input, .hackathon-card textarea {
+    background-color: #222;
+    border: 1px solid #00c6ff;
+    color: #fff;
+}
+.hackathon-card button {
+    background: linear-gradient(90deg, #ffb347 0%, #ff5ec4 50%, #00c6ff 100%);
+    color: #222;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    transition: box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 2px 8px #00c6ff44;
+}
+.hackathon-card button:hover {
+    background: linear-gradient(90deg, #00c6ff 0%, #ff5ec4 100%);
+    color: #fff;
+    box-shadow: 0 4px 24px #ff5ec488;
+}
+.hackathon-card .flash-message.success {
+    color: #00ffae;
+    background: #fff2;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+.hackathon-card .flash-message.error {
+    color: #ff4444;
+    background: #fff2;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Responsive for hackathon card */
+@media (max-width: 700px) {
+    .hackathon-card {
+        padding: 1.2rem 0.5rem;
+        max-width: 98vw;
+    }
+}
 @media (max-width: 900px) {
     .home-content-wrapper {
         gap: 1.2rem;

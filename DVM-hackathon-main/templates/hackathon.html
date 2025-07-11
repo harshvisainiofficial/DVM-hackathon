@@ -18,29 +18,31 @@
             <li><a href="{{ url_for('logout') }}">Logout</a></li>
         </ul>
     </nav>
-    <div class="main-page">
-        <h1>Hackathon</h1>
-        <div class="section">
-            <h3>Submit Your Code</h3>
-            <p>Paste your team's code below:</p>
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    <div class="flash-message {{ messages[0][0] }}">
-                        {{ messages[0][1] }}
+    <div class="space-theme">
+        <div class="main-page">
+            <section>
+                <h1>Hackathon</h1>
+                <h3>Submit Your Code</h3>
+                <p>Paste your team's code below:</p>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="flash-message {{ messages[0][0] }}">
+                            {{ messages[0][1] }}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="team_name">Team Name</label>
+                        <input type="text" id="team_name" name="team_name" required>
                     </div>
-                {% endif %}
-            {% endwith %}
-            <form method="POST">
-                <div class="form-group">
-                    <label for="team_name">Team Name</label>
-                    <input type="text" id="team_name" name="team_name" required>
-                </div>
-                <div class="form-group">
-                    <label for="code">Code</label>
-                    <textarea id="code" name="code" rows="15" required></textarea>
-                </div>
-                <button type="submit">Submit</button>
-            </form>
+                    <div class="form-group">
+                        <label for="code">Code</label>
+                        <textarea id="code" name="code" rows="15" required></textarea>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
         </div>
     </div>
 </body>
